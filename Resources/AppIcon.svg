@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <!-- Placeholder icon: a manga-style anger mark. 1024 canvas, 824 rounded square per the macOS icon grid. -->
+  <rect x="100" y="100" width="824" height="824" rx="185" fill="#f4efe9"/>
+  <g fill="none" stroke="#ff3222" stroke-width="64" stroke-linecap="round">
+    <path d="M440 300 C 450 380 400 430 300 440"/>
+    <g transform="rotate(90 512 512)"><path d="M440 300 C 450 380 400 430 300 440"/></g>
+    <g transform="rotate(180 512 512)"><path d="M440 300 C 450 380 400 430 300 440"/></g>
+    <g transform="rotate(270 512 512)"><path d="M440 300 C 450 380 400 430 300 440"/></g>
+  </g>
+</svg>
