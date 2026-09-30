@@ -72,9 +72,9 @@ extension AppModel {
         case .paused, .outsideWorkingHours:
             MenuBarIcon.dimmed
         case .onBlockedSite:
-            intensity > 0 ? MenuBarIcon.glowing : MenuBarIcon.watching
+            MenuBarIcon.alert
         case .clear, .locked:
-            intensity > 0 ? MenuBarIcon.glowing : MenuBarIcon.normal
+            intensity > 0 ? MenuBarIcon.alert : MenuBarIcon.normal
         }
     }
 
