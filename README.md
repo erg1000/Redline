@@ -13,7 +13,12 @@ A menu bar app that paints a red glow around your screen edges when you linger o
 ```bash
 ./scripts/build-app.sh            # builds build/Redline.app
 ./scripts/build-app.sh --install  # also copies it to /Applications and launches it
+./scripts/make-release.sh         # builds build/Redline-<version>.dmg for distribution
 swift scripts/make-icon.swift     # renders Resources/AppIcon.svg (or .png) into AppIcon.icns
 ```
 
 If the menu says it can't read your browser, open System Settings → Privacy & Security → Automation and enable Safari/Chrome under Redline.
+
+## License
+
+MIT — see [LICENSE](LICENSE).
