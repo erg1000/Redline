@@ -4,6 +4,7 @@
 //
 
 import AppKit
+import OSLog
 import Observation
 
 /// What the app is currently seeing.
@@ -93,7 +94,9 @@ final class AppModel {
         if elapsed > 30 { exposure = 0 }
         let step = min(elapsed, 30)
 
-        status = currentStatus(at: now)
+        let newStatus = currentStatus(at: now)
+        if newStatus != status { Logger().notice("Status: \(String(describing: newStatus), privacy: .public)") }
+        status = newStatus
         if case .onBlockedSite = status {
             exposure += step
         } else {

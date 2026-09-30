@@ -44,7 +44,7 @@ final class BrowserMonitor {
         var error: NSDictionary?
         let result = script.executeAndReturnError(&error)
         if let error {
-            Logger().info("AppleScript for \(bundleID, privacy: .public) failed: \(error, privacy: .public)")
+            Logger().error("AppleScript for \(bundleID, privacy: .public) failed: \(error, privacy: .public)")
             // -1743: the user hasn't allowed us to control this app.
             if error[NSAppleScript.errorNumber] as? Int == -1743 {
                 return .accessDenied(browser: app.localizedName ?? bundleID)

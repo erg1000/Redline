@@ -71,7 +71,9 @@ extension AppModel {
             NSImage(systemSymbolName: "exclamationmark.triangle", accessibilityDescription: "Redline needs browser access")!
         case .paused, .outsideWorkingHours:
             MenuBarIcon.dimmed
-        case .clear, .locked, .onBlockedSite:
+        case .onBlockedSite:
+            intensity > 0 ? MenuBarIcon.glowing : MenuBarIcon.watching
+        case .clear, .locked:
             intensity > 0 ? MenuBarIcon.glowing : MenuBarIcon.normal
         }
     }
