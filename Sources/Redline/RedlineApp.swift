@@ -13,7 +13,7 @@ struct RedlineApp: App {
         MenuBarExtra {
             MenuContent(model: model)
         } label: {
-            Image(systemName: model.menuBarSymbol)
+            Image(nsImage: model.menuBarImage)
         }
         .menuBarExtraStyle(.menu)
 
@@ -65,14 +65,14 @@ func openAutomationSettings() {
 }
 
 extension AppModel {
-    var menuBarSymbol: String {
+    var menuBarImage: NSImage {
         switch status {
-        case .paused: "pause.circle"
-        case .outsideWorkingHours: "moon.zzz"
-        case .accessDenied: "exclamationmark.triangle"
-        case .onBlockedSite where intensity > 0: "flame.fill"
-        case .onBlockedSite: "eye.trianglebadge.exclamationmark"
-        case .clear, .locked: intensity > 0 ? "flame" : "eye"
+        case .accessDenied:
+            NSImage(systemSymbolName: "exclamationmark.triangle", accessibilityDescription: "Redline needs browser access")!
+        case .paused, .outsideWorkingHours:
+            MenuBarIcon.dimmed
+        case .clear, .locked, .onBlockedSite:
+            intensity > 0 ? MenuBarIcon.glowing : MenuBarIcon.normal
         }
     }
 
