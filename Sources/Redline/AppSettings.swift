@@ -72,10 +72,13 @@ final class AppSettings {
         didSet { defaults.set(try? JSONEncoder().encode(schedule), forKey: "schedule") }
     }
 
-    /// Minutes on a blocked site before the glow appears.
-    var graceMinutes: Int {
-        didSet { defaults.set(graceMinutes, forKey: "graceMinutes") }
+    /// Seconds on a blocked site before the glow appears.
+    var graceSeconds: Int {
+        didSet { defaults.set(graceSeconds, forKey: "graceSeconds") }
     }
+
+    /// Choices offered for `graceSeconds`.
+    static let graceChoices = [30, 60, 120, 180, 300, 600, 900]
 
     /// Minutes from the first glow until full intensity.
     var rampMinutes: Int {
@@ -91,7 +94,7 @@ final class AppSettings {
         restrictToSchedule = defaults.object(forKey: "restrictToSchedule") as? Bool ?? true
         schedule = defaults.data(forKey: "schedule")
             .flatMap { try? JSONDecoder().decode(WorkSchedule.self, from: $0) } ?? .standard
-        graceMinutes = defaults.object(forKey: "graceMinutes") as? Int ?? 2
+        graceSeconds = defaults.object(forKey: "graceSeconds") as? Int ?? 60
         rampMinutes = defaults.object(forKey: "rampMinutes") as? Int ?? 10
         windDown = WindDown(rawValue: defaults.integer(forKey: "windDown")) ?? .fast
     }

@@ -46,6 +46,9 @@ private struct MenuContent: View {
                 Button("Rest of Today") { model.pauseForRestOfDay() }
             }
         }
+        Picker("Glow Starts After", selection: Bindable(model.settings).graceSeconds) {
+            ForEach(AppSettings.graceChoices, id: \.self) { Text(formatGrace($0)).tag($0) }
+        }
         Button("Preview Glow") { model.previewGlow() }
 
         Divider()
@@ -97,6 +100,13 @@ extension AppModel {
             return "On \(domain) · \(formatDuration(exposure)) · \(Int(intensity * 100))% glow"
         }
     }
+}
+
+/// "30 Seconds", "1 Minute", "5 Minutes".
+func formatGrace(_ seconds: Int) -> String {
+    if seconds < 60 { return "\(seconds) Seconds" }
+    let minutes = seconds / 60
+    return minutes == 1 ? "1 Minute" : "\(minutes) Minutes"
 }
 
 func formatDuration(_ seconds: TimeInterval) -> String {

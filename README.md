@@ -3,7 +3,7 @@
 A menu bar app that paints a red glow around your screen edges when you linger on social media during working hours.
 
 - Watches the active tab in **Safari** and **Chrome** (via AppleScript — allow it when macOS asks).
-- After **2 minutes** on a listed site the glow fades in, then grows stronger and starts pulsing until it reaches full intensity (**10 minutes** later by default).
+- After **1 minute** on a listed site (adjustable from the menu: 30 seconds to 15 minutes) the glow fades in, then grows stronger and starts pulsing until it reaches full intensity (**10 minutes** later by default).
 - When you leave, built-up time drains quickly (Fast = 20× faster than it builds up, so a full glow is gone in about 30 seconds). Short tab switches barely dent it; real breaks clear it.
 - Working hours (default Mon–Fri 9:00–18:00), timings, wind-down speed and the site list are all editable in **Settings…**.
 - Pause for 15 min / 30 min / 1 h / rest of the day from the menu. **Preview Glow** shows what the alarm looks like.

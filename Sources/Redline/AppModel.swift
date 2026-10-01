@@ -48,7 +48,7 @@ final class AppModel {
         tick()
     }
 
-    var grace: TimeInterval { TimeInterval(settings.graceMinutes * 60) }
+    var grace: TimeInterval { TimeInterval(settings.graceSeconds) }
     var ramp: TimeInterval { TimeInterval(max(settings.rampMinutes, 1) * 60) }
 
     var intensity: Double {

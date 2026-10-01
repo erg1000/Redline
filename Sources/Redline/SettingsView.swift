@@ -35,7 +35,9 @@ struct SettingsView: View {
             }
 
             Section("Alarm") {
-                Stepper("Glow starts after \(settings.graceMinutes) min", value: $settings.graceMinutes, in: 1...30)
+                Picker("Glow starts after", selection: $settings.graceSeconds) {
+                    ForEach(AppSettings.graceChoices, id: \.self) { Text(formatGrace($0)).tag($0) }
+                }
                 Stepper("Full intensity \(settings.rampMinutes) min later", value: $settings.rampMinutes, in: 1...60)
                 Picker("Wind-down when you leave", selection: $settings.windDown) {
                     ForEach(WindDown.allCases) { Text($0.title).tag($0) }
