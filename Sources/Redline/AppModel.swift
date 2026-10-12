@@ -28,6 +28,8 @@ final class AppModel {
     @ObservationIgnored private var timer: Timer?
     @ObservationIgnored private var lastTick = Date.now
     @ObservationIgnored private var previewStart: Date?
+    /// Called after every poll and action so the menu bar can refresh.
+    @ObservationIgnored var onUpdate: (() -> Void)?
 
     private(set) var status: AlarmStatus = .clear
     /// Seconds of blocked-site time built up; drains while you are elsewhere.
@@ -110,6 +112,7 @@ final class AppModel {
             previewStart = nil
             overlay.setIntensity(intensity)
         }
+        onUpdate?()
     }
 
     private func currentStatus(at now: Date) -> AlarmStatus {
